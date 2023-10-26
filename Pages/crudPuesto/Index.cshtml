@@ -1,0 +1,44 @@
+﻿@page "/puestoIndex"
+@model Tarea9.Pages.crudPuesto.IndexModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Puesto[0].nombrePuesto)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Puesto) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombrePuesto)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.idPuesto">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.idPuesto">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.idPuesto">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>
